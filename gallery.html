@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Галерея BMW M - История BMW</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <style>
+    .gallery-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-bottom: 60px;
+    }
+
+    .gallery-card {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(220, 0, 0, 0.15);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      cursor: pointer;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-20px) scale(1.03);
+      box-shadow: 0 20px 50px rgba(220, 0, 0, 0.3);
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .gallery-card:hover img {
+      transform: scale(1.15) rotate(2deg);
+    }
+
+    .gallery-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.9) 100%);
+      padding: 30px 20px 20px;
+      color: white;
+      transform: translateY(100px);
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-card:hover .gallery-info {
+      transform: translateY(0);
+    }
+
+    .gallery-info h3 {
+      color: var(--bmw-red);
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+    }
+
+    .gallery-info p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .gallery-badge {
+      display: inline-block;
+      background: var(--bmw-red);
+      color: white;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .filter-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 10px 20px;
+      border: 2px solid var(--bmw-red);
+      background: transparent;
+      color: var(--bmw-red);
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--bmw-red);
+      color: white;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <div class="logo-icon">BMW</div>
+        <span>История BMW</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="./index.html">Главная</a></li>
+          <li><a href="./pages/history.html">История</a></li>
+          <li><a href="./pages/models.html">Модели</a></li>
+          <li><a href="./pages/timeline.html">Временная шкала</a></li>
+          <li><a href="./pages/gallery.html">Галерея</a></li>
+          <li><a href="./pages/achievements.html">Достижения</a></li>
+          <li><a href="./pages/contact.html">Контакты</a></li>
+        </ul>
+      </nav>
+      <button class="theme-toggle" id="themeToggle" title="Переключить тему">🌙</button>
+      <button class="mobile-menu-btn">☰</button>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Галерея BMW M</h1>
+      <p class="hero-subtitle">Высокопроизводительные автомобили</p>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <section style="background: var(--white);">
+      <div class="container">
+        <h2 class="section-title">Шедевры M Series</h2>
+
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter="all">Все</button>
+          <button class="filter-btn" data-filter="sedan">Седаны</button>
+          <button class="filter-btn" data-filter="suv">Внедорожники</button>
+          <button class="filter-btn" data-filter="coupe">Купе</button>
+        </div>
+
+        <div class="gallery-section">
+          <div class="gallery-card" data-category="sedan">
+            <img src="https://images.unsplash.com/photo-1601584942256-bf8d32a6b319?w=400&h=350&fit=crop" alt="BMW M3" loading="lazy">
+            <div class="gallery-info">
+              <h3>BMW M3</h3>
+              <p>Легендарный спортивный седан с 503 л.с.</p>
+              <span class="gallery-badge">2024</span>
+            </div>
+          </div>
+
+          <div class="gallery-card" data-category="sedan">
+            <img src="https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=400&h=350&fit=crop" alt="BMW M5" loading="lazy">
+            <div class="gallery-info">
+              <h3>BMW M5</h3>
+              <p>Мощный sedan с инновационной гибридной технологией</p>
+              <span class="gallery-badge">2024</span>
+            </div>
+          </div>
+
+          <div class="gallery-card" data-category="sedan">
+            <img src="https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=400&h=350&fit=crop" alt="BMW M440i" loading="lazy">
+            <div class="gallery-info">
+              <h3>BMW M440i</h3>
+              <p>Спортивный седан 4 серии с утонченным дизайном</p>
+              <span class="gallery-badge">2024</span>
+            </div>
+          </div>
+
+          <div class="gallery-card" data-category="suv">
+            <img src="https://images.unsplash.com/photo-1577720643272-265e434a84a7?w=400&h=350&fit=crop" alt="BMW X5 M" loading="lazy">
+            <div class="gallery-info">
+              <h3>BMW X5 M</h3>
+              <p>Роскошный спортивный внедорожник 625 л.с.</p>
+              <span class="gallery-badge">2024</span>
+            </div>
+          </div>
+
+          <div class="gallery-card" data-category="suv">
+            <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=400&h=350&fit=crop" alt="BMW X6 M" loading="lazy">
+            <div class="gallery-info">
+              <h3>BMW X6 M</h3>
+              <p>Высокопроизводительный спортивный кроссовер</p>
+              <span class="gallery-badge">2023</span>
+            </div>
+          </div>
+
+          <div class="gallery-card" data-category="suv">
+            <img src="https://images.unsplash.com/photo-1611818913050-d07ba15d9851?w=400&h=350&fit=crop" alt="BMW XM" loading="lazy">
+            <div class="gallery-info">
+              <h3>BMW XM</h3>
+              <p>Спортивный купе-кроссовер с агрессивным дизайном</p>
+              <span class="gallery-badge">2023</span>
+            </div>
+          </div>
+
+          <div class="gallery-card" data-category="coupe">
+            <img src="https://images.unsplash.com/photo-1606611013016-969c19d4a42f?w=400&h=350&fit=crop" alt="BMW M440i xDrive" loading="lazy">
+            <div class="gallery-info">
+              <h3>BMW M440i xDrive</h3>
+              <p>Спортивное купе с полным приводом</p>
+              <span class="gallery-badge">2024</span>
+            </div>
+          </div>
+
+          <div class="gallery-card" data-category="coupe">
+            <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=400&h=350&fit=crop" alt="BMW M850i" loading="lazy">
+            <div class="gallery-info">
+              <h3>BMW M850i</h3>
+              <p>Премиум-купе с 625 л.с. и лаконичным дизайном</p>
+              <span class="gallery-badge">2023</span>
+            </div>
+          </div>
+
+          <div class="gallery-card" data-category="sedan">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=350&fit=crop" alt="BMW M340i" loading="lazy">
+            <div class="gallery-info">
+              <h3>BMW M340i</h3>
+              <p>Компактный спортивный седан класса премиум</p>
+              <span class="gallery-badge">2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>О сайте</h3>
+        <p>Этот сайт посвящен полной истории автомобильной компании BMW - от её основания в 1916 году до наших дней.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Навигация</h3>
+        <ul>
+          <li><a href="./index.html">Главная</a></li>
+          <li><a href="./pages/history.html">История</a></li>
+          <li><a href="./pages/models.html">Модели</a></li>
+          <li><a href="./pages/timeline.html">Временная шкала</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Больше</h3>
+        <ul>
+          <li><a href="./pages/gallery.html">Галерея</a></li>
+          <li><a href="./pages/achievements.html">Достижения</a></li>
+          <li><a href="./pages/contact.html">Контакты</a></li>
+          <li><a href="#">О разработчике</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Контакты</h3>
+        <p>📧 Email: info@bmw-history.ru</p>
+        <p>📱 Телефон: +7 (XXX) XXX-XX-XX</p>
+        <p>🌐 Веб-сайт: www.bmw-history.ru</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 История BMW. Все права защищены.</p>
+      <p>Это веб-сайт создан в образовательных целях и не является официальным сайтом BMW Group.</p>
+    </div>
+  </footer>
+
+  <!-- SCROLL TO TOP BUTTON -->
+  <div class="scroll-to-top">↑</div>
+
+  <script src="./js/script.js"></script>
+  <script>
+    // Filter functionality for gallery
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+        const cards = document.querySelectorAll('.gallery-card');
+        
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        cards.forEach((card, index) => {
+          if (filter === 'all' || card.dataset.category === filter) {
+            card.style.display = 'block';
+            card.style.animation = 'fadeScale 0.6s ease-out';
+            card.style.animationDelay = `${index * 0.1}s`;
+            card.style.animationFillMode = 'both';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

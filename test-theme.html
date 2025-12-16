@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Theme System</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      background: var(--primary-blue);
+      color: var(--text-color);
+      font-family: Arial, sans-serif;
+    }
+    .test-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .test-section {
+      background: var(--secondary-blue);
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+      border: 2px solid var(--bmw-red);
+    }
+    h1 {
+      text-align: center;
+      color: var(--bmw-red);
+    }
+  </style>
+</head>
+<body>
+  <div class="test-container">
+    <h1>🎨 Тестирование системы тем</h1>
+    
+    <div class="test-section">
+      <h2>Текущая тема: <span id="current-theme">-</span></h2>
+      <p id="theme-info"></p>
+    </div>
+
+    <div class="test-section">
+      <h3>Выберите тему:</h3>
+      <div class="theme-selector" style="justify-content: center; gap: 15px;">
+        <button class="theme-btn" data-theme="dark" title="Темная 🌙">🌙 Темная</button>
+        <button class="theme-btn" data-theme="light" title="Светлая ☀️">☀️ Светлая</button>
+        <button class="theme-btn" data-theme="bmw-m-dark" title="BMW M Dark 🏁">🏁 BMW M Dark</button>
+        <button class="theme-btn" data-theme="bmw-m-red" title="BMW M Red 🔴">🔴 BMW M Red</button>
+        <button class="theme-btn" data-theme="sport" title="Sport ⚡">⚡ Sport</button>
+      </div>
+    </div>
+
+    <div class="test-section">
+      <h3>Информация:</h3>
+      <p><strong>LocalStorage тема:</strong> <span id="storage-theme">-</span></p>
+      <p><strong>HTML data-theme:</strong> <span id="html-theme">-</span></p>
+      <p><strong>Кнопки найдено:</strong> <span id="buttons-count">-</span></p>
+      <button onclick="clearTheme()" style="padding: 10px 20px; margin-top: 10px;">Очистить localStorage</button>
+    </div>
+  </div>
+
+  <script>
+    // Initialize theme immediately
+    (function() {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      console.log('✅ Theme initialized:', savedTheme);
+    })();
+
+    // Update info on page load
+    function updateInfo() {
+      const storedTheme = localStorage.getItem('theme') || 'not set';
+      const htmlTheme = document.documentElement.getAttribute('data-theme') || 'not set';
+      const buttons = document.querySelectorAll('.theme-btn').length;
+      
+      document.getElementById('current-theme').textContent = htmlTheme;
+      document.getElementById('storage-theme').textContent = storedTheme;
+      document.getElementById('html-theme').textContent = htmlTheme;
+      document.getElementById('buttons-count').textContent = buttons;
+      document.getElementById('theme-info').textContent = `Фон: ${getComputedStyle(document.body).backgroundColor}, Текст: ${getComputedStyle(document.body).color}`;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('🎯 DOMContentLoaded fired');
+      
+      updateInfo();
+
+      // Theme buttons handler
+      const themeButtons = document.querySelectorAll('.theme-btn');
+      console.log('🔘 Theme buttons found:', themeButtons.length);
+
+      themeButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const theme = btn.getAttribute('data-theme');
+          console.log('✨ Theme button clicked:', theme);
+          
+          document.documentElement.setAttribute('data-theme', theme);
+          localStorage.setItem('theme', theme);
+          
+          themeButtons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          
+          updateInfo();
+          console.log('✅ Theme changed to:', theme);
+        });
+      });
+
+      // Set first button as active
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      themeButtons.forEach(btn => {
+        if (btn.getAttribute('data-theme') === savedTheme) {
+          btn.classList.add('active');
+        }
+      });
+
+      console.log('✅ Event listeners attached');
+    });
+
+    function clearTheme() {
+      localStorage.removeItem('theme');
+      document.documentElement.setAttribute('data-theme', 'dark');
+      location.reload();
+    }
+
+    // Debug info
+    console.log('📄 Test page loaded');
+    console.log('LocalStorage theme:', localStorage.getItem('theme'));
+  </script>
+</body>
+</html>
