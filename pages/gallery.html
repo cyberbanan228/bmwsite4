@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Галерея BMW - Фотографии моделей</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <div class="logo-icon">BMW</div>
+        <span>История BMW</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="../index.html">Главная</a></li>
+          <li><a href="./history.html">История</a></li>
+          <li><a href="./models.html">Модели</a></li>
+          <li><a href="./timeline.html">Временная шкала</a></li>
+          <li><a href="./gallery.html">Галерея</a></li>
+          <li><a href="./achievements.html">Достижения</a></li>
+        </ul>
+      </nav>
+      <div class="theme-selector">
+        <button class="theme-btn" data-theme="dark" title="Темная 🌙" onclick="changeTheme('dark')">🌙</button>
+        <button class="theme-btn" data-theme="light" title="Светлая ☀️" onclick="changeTheme('light')">☀️</button>
+        <button class="theme-btn" data-theme="bmw-m-dark" title="BMW M Dark 🏁" onclick="changeTheme('bmw-m-dark')">🏁</button>
+        <button class="theme-btn" data-theme="bmw-m-red" title="BMW M Red 🔴" onclick="changeTheme('bmw-m-red')">🔴</button>
+        <button class="theme-btn" data-theme="sport" title="Sport ⚡" onclick="changeTheme('sport')">⚡</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <a href="../index.html">Главная</a>
+    <span>/</span>
+    <span>Галерея</span>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" style="padding: 80px 20px;">
+    <div class="hero-content">
+      <h1>Галерея BMW</h1>
+      <p class="hero-subtitle">Визуальная история автомобилей</p>
+    </div>
+  </section>
+
+  <main>
+    <!-- FILTER SECTION -->
+    <section style="background: var(--secondary-blue); padding: 40px 20px;">
+      <div class="container">
+        <h3 style="text-align: center; margin-bottom: 25px; color: var(--white);">Фильтр по классу</h3>
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter="all">Все модели</button>
+          <button class="filter-btn" data-filter="classic">Классические</button>
+          <button class="filter-btn" data-filter="sedan">Седаны</button>
+          <button class="filter-btn" data-filter="suv">Внедорожники</button>
+          <button class="filter-btn" data-filter="m-series">M-Серия</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLASSIC MODELS GALLERY -->
+    <section style="background: var(--white);" data-category="classic">
+      <div class="container">
+        <h2 class="section-title">Классические модели</h2>
+        <p style="text-align: center; margin-bottom: 40px; font-size: 1.1rem;">Легендарные автомобили прошлого</p>
+        
+        <div class="gallery">
+          <div class="gallery-item" data-category="classic">
+            <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=400&h=250&fit=crop" alt="BMW Classic" loading="lazy">
+            <div class="gallery-overlay">BMW 328 (1936)</div>
+          </div>
+          <div class="gallery-item" data-category="classic">
+            <img src="https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=400&h=250&fit=crop" alt="BMW Classic" loading="lazy">
+            <div class="gallery-overlay">BMW 501 (1952)</div>
+          </div>
+          <div class="gallery-item" data-category="classic">
+            <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=400&h=250&fit=crop" alt="BMW Isetta" loading="lazy">
+            <div class="gallery-overlay">BMW Isetta (1955)</div>
+          </div>
+          <div class="gallery-item" data-category="classic">
+            <img src="https://images.unsplash.com/photo-1493238238773-8cc61b8c9c20?w=400&h=250&fit=crop" alt="BMW 700" loading="lazy">
+            <div class="gallery-overlay">BMW 700 (1959)</div>
+          </div>
+          <div class="gallery-item" data-category="classic">
+            <img src="https://images.unsplash.com/photo-1506744038566-40beabad9c94?w=400&h=250&fit=crop" alt="BMW 1500" loading="lazy">
+            <div class="gallery-overlay">BMW 1500 (1966)</div>
+          </div>
+          <div class="gallery-item" data-category="classic">
+            <img src="https://images.unsplash.com/photo-1539524552695-ffa633e70bf3?w=400&h=250&fit=crop" alt="BMW 2002" loading="lazy">
+            <div class="gallery-overlay">BMW 2002 (1970)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODERN SERIES GALLERY -->
+    <section style="background: #f0f8ff;" data-category="sedan,suv">
+      <div class="container">
+        <h2 class="section-title">Современные серии</h2>
+        <p style="text-align: center; margin-bottom: 40px; font-size: 1.1rem;">Иконы наших дней</p>
+        
+        <div class="gallery">
+          <div class="gallery-item" data-category="sedan">
+            <img src="https://images.unsplash.com/photo-1606613031715-1f8dd24f1c5d?w=400&h=250&fit=crop" alt="BMW 3 Series" loading="lazy">
+            <div class="gallery-overlay">BMW 3 Series</div>
+          </div>
+          <div class="gallery-item" data-category="sedan">
+            <img src="https://images.unsplash.com/photo-1601584942256-bf8d32a6b319?w=400&h=250&fit=crop" alt="BMW 5 Series" loading="lazy">
+            <div class="gallery-overlay">BMW 5 Series</div>
+          </div>
+          <div class="gallery-item" data-category="sedan">
+            <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=400&h=250&fit=crop" alt="BMW 7 Series" loading="lazy">
+            <div class="gallery-overlay">BMW 7 Series</div>
+          </div>
+          <div class="gallery-item" data-category="suv">
+            <img src="https://images.unsplash.com/photo-1606573031715-1f8dd24f1c5d?w=400&h=250&fit=crop" alt="BMW X5" loading="lazy">
+            <div class="gallery-overlay">BMW X5</div>
+          </div>
+          <div class="gallery-item" data-category="suv">
+            <img src="https://images.unsplash.com/photo-1533473359331-35a27f1d9c84?w=400&h=250&fit=crop" alt="BMW X3" loading="lazy">
+            <div class="gallery-overlay">BMW X3</div>
+          </div>
+          <div class="gallery-item" data-category="sedan">
+            <img src="https://images.unsplash.com/photo-1616162692292-7ac56d7f7f1e?w=400&h=250&fit=crop" alt="BMW 6 GT" loading="lazy">
+            <div class="gallery-overlay">BMW 6GT</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- M-SERIES GALLERY -->
+    <section style="background: var(--white);" data-category="m-series">
+      <div class="container">
+        <h2 class="section-title">M-Серия - Производительность</h2>
+        <p style="text-align: center; margin-bottom: 40px; font-size: 1.1rem;">Высокопроизводительные спортивные машины</p>
+        
+        <div class="gallery">
+          <div class="gallery-item" data-category="m-series">
+            <img src="https://images.unsplash.com/photo-1608484905606-19d87c5d5f66?w=400&h=250&fit=crop" alt="BMW M2" loading="lazy">
+            <div class="gallery-overlay">BMW M2</div>
+          </div>
+          <div class="gallery-item" data-category="m-series">
+            <img src="https://images.unsplash.com/photo-1611132585519-4b6f351a2422?w=400&h=250&fit=crop" alt="BMW M3" loading="lazy">
+            <div class="gallery-overlay">BMW M3</div>
+          </div>
+          <div class="gallery-item" data-category="m-series">
+            <img src="https://images.unsplash.com/photo-1592072651776-88ffe8e4f5c2?w=400&h=250&fit=crop" alt="BMW M4" loading="lazy">
+            <div class="gallery-overlay">BMW M4</div>
+          </div>
+          <div class="gallery-item" data-category="m-series">
+            <img src="https://images.unsplash.com/photo-1609708536965-8cacb0acc14d?w=400&h=250&fit=crop" alt="BMW M5" loading="lazy">
+            <div class="gallery-overlay">BMW M5</div>
+          </div>
+          <div class="gallery-item" data-category="m-series,suv">
+            <img src="https://images.unsplash.com/photo-1605559424843-9e4c3febda46?w=400&h=250&fit=crop" alt="BMW X5 M" loading="lazy">
+            <div class="gallery-overlay">BMW X5 M</div>
+          </div>
+          <div class="gallery-item" data-category="m-series">
+            <img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=400&h=250&fit=crop" alt="BMW M8" loading="lazy">
+            <div class="gallery-overlay">BMW M8</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ELECTRIC MODELS GALLERY -->
+    <section style="background: #f0f8ff;">
+      <div class="container">
+        <h2 class="section-title">Электромобили BMW i</h2>
+        <p style="text-align: center; margin-bottom: 40px; font-size: 1.1rem;">Будущее автомобильности</p>
+        
+        <div class="gallery">
+          <div class="gallery-item">
+            <div style="width: 100%; height: 250px; background: linear-gradient(135deg, #0066FF, #00CCFF); display: flex; align-items: center; justify-content: center; font-size: 80px;">⚡</div>
+            <div class="gallery-overlay">BMW i3</div>
+          </div>
+          <div class="gallery-item">
+            <div style="width: 100%; height: 250px; background: linear-gradient(135deg, #00FFCC, #00FF99); display: flex; align-items: center; justify-content: center; font-size: 80px;">⚡</div>
+            <div class="gallery-overlay">BMW i4</div>
+          </div>
+          <div class="gallery-item">
+            <div style="width: 100%; height: 250px; background: linear-gradient(135deg, #0099FF, #0066CC); display: flex; align-items: center; justify-content: center; font-size: 80px;">⚡</div>
+            <div class="gallery-overlay">BMW iX</div>
+          </div>
+          <div class="gallery-item">
+            <div style="width: 100%; height: 250px; background: linear-gradient(135deg, #00FFFF, #00CCFF); display: flex; align-items: center; justify-content: center; font-size: 80px;">⚡</div>
+            <div class="gallery-overlay">BMW iX xDrive50</div>
+          </div>
+          <div class="gallery-item">
+            <div style="width: 100%; height: 250px; background: linear-gradient(135deg, #33FF00, #00FF33); display: flex; align-items: center; justify-content: center; font-size: 80px;">🔋</div>
+            <div class="gallery-overlay">BMW 3 PHEV</div>
+          </div>
+          <div class="gallery-item">
+            <div style="width: 100%; height: 250px; background: linear-gradient(135deg, #FFCC00, #FFFF00); display: flex; align-items: center; justify-content: center; font-size: 80px;">🔌</div>
+            <div class="gallery-overlay">BMW 5 PHEV</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROADSTERS GALLERY -->
+    <section style="background: var(--white);">
+      <div class="container">
+        <h2 class="section-title">Спортивные Roadster</h2>
+        <p style="text-align: center; margin-bottom: 40px; font-size: 1.1rem;">Открытые спортивные автомобили</p>
+        
+        <div class="gallery">
+          <div class="gallery-item">
+            <div style="width: 100%; height: 250px; background: linear-gradient(135deg, #FF1493, #FF69B4); display: flex; align-items: center; justify-content: center; font-size: 80px;">🏎️</div>
+            <div class="gallery-overlay">BMW Z3</div>
+          </div>
+          <div class="gallery-item">
+            <div style="width: 100%; height: 250px; background: linear-gradient(135deg, #FFD700, #FFA500); display: flex; align-items: center; justify-content: center; font-size: 80px;">🏎️</div>
+            <div class="gallery-overlay">BMW Z4</div>
+          </div>
+          <div class="gallery-item">
+            <div style="width: 100%; height: 250px; background: linear-gradient(135deg, #FF0000, #CC0000); display: flex; align-items: center; justify-content: center; font-size: 80px;">🏎️</div>
+            <div class="gallery-overlay">BMW i8</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>О сайте</h3>
+        <p>Визуальная галерея всех моделей BMW на протяжении истории.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Навигация</h3>
+        <ul>
+          <li><a href="../index.html">Главная</a></li>
+          <li><a href="./history.html">История</a></li>
+          <li><a href="./models.html">Модели</a></li>
+          <li><a href="./timeline.html">Временная шкала</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Больше</h3>
+        <ul>
+          <li><a href="./gallery.html">Галерея</a></li>
+          <li><a href="./achievements.html">Достижения</a></li>
+          <li><a href="./contact.html">Контакты</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Контакты</h3>
+        <p>📧 Email: info@bmw-history.ru</p>
+        <p>📱 Телефон: +7 (XXX) XXX-XX-XX</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 История BMW. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <div class="scroll-to-top">↑</div>
+  <script src="../js/script.js"></script>
+</body>
+</html>
